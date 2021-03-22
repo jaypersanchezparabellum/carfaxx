@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Insurance and Financial Field Disclosure Options</title>
+    </head>
+    <body onload="setupDocument()">
+        <div class="app">
+
+            <p>
+            <b>Selective Disclosure Field Options</b>
+            <div id="deviceready">
+               
+                        <div id="default_includes">
+                        <p>
+                            These fields below are required by default
+                        </p>
+                        <p>
+                        <label> Valid Driver's License</label><br>
+                        <label> Valid Vehicle Registration?</label><br>
+                         <label>EPA/SMOG</label><br>
+                         <label>Vehicle Financing Status</label><br>
+                         <label>Vehicle Title Status</label>
+                        </p>
+                        
+                        <div>
+                            <p>These fields can be included with the consent of the Vehicle Owner</p>
+                            <p>
+                                <p>
+                                    <input type="checkbox" id="violation" name="violation" >
+                                    <label for="violation">Traffic Violation Report</label><br>
+                                </p>
+
+                                <p>
+                                    <input type="checkbox" id="maintenancehistory" name="maintenancehistory" >
+                                    <label for="maintenancehistory">Maintenance History</label><br>
+                                </p>
+
+                            </p>
+                        </div>
+            </div>
+
+            <div>
+                    <label>By Clicking Home Your Changes is Saved Automatically</label><br>
+                    <button id="home">Home</button>
+            </div>
+
+
+
+
+
+            </div>
+            </p>
+
+        </div>
+        
+        <script src="cordova.js"></script>
+        <script src="js/selective_insfin.js"></script>
+    </body>
+</html>

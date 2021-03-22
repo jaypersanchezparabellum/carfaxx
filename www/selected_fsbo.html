@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Insurance and Financial Validation Checklist</title>
+    </head>
+    <body onload="setupDocument()">
+        <div class="app">
+
+            <p>
+            <div id="deviceready">
+                
+            </div>
+            </p>
+
+            <div>
+                        
+
+                        <p>
+                        <input type="checkbox" id="validreg" name="validreg" value="validreg">
+                        <label for="vehicle2"> Valid Vehicle Registration?</label><br>
+                        </p>
+
+                       <p>
+                        <label>EPA/SMOG</label><br>
+                        <input type="radio" id="smog1" name="epatest" value="true">
+                        <label for="smog">Pass</label><br>
+                        <input type="radio" id="smog2" name="epatest" value="false">
+                        <label for="smog">Failed</label><br>
+                        </p>
+
+                        <p>
+                                    <label for="vehicletitle">Vehicle Title Status</label><br>
+                                    <select name="vehicletitle" id="vehicletitle">
+                                            <option value="clean">Clean</option>
+                                            <option value="stolen">Stolen/Missing</option>
+                                            <option value="salvaged">Salvaged</option>
+                                    </select>
+                        </p>
+
+                        <p>
+                                    <label for="currentstatus">Vehicle Current Status</label><br>
+                                    <select name="status" id="currentstatus">
+                                            <option value="ok">Vehicle Operator OK</option>
+                                            <option value="stolen">Stolen</option>
+                                            <option value="amber">On Ambert Alert Watchlist</option>
+                                    </select>
+                        </p>
+
+                        <p>
+                        <input type="checkbox" id="lien" name="lien" value="lien">
+                        <label for="lien"> Existing Bank Lien?</label><br>
+                        </p>
+
+                       
+            </div>
+
+            <div>
+                    <button id="savenft">Save to NFT</button>
+                    <button id="home">Home</button>
+            </div>
+            
+        </div>
+        
+        <script src="cordova.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/fsbo.js"></script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+        <title>Insurance and Financial Validation Checklist</title>
+    </head>
+    <body onload="setupDocument()">
+        <div class="app">
+
+            <p>
+            <h1>Carfaxx</h1>
+            <div id="deviceready">
+                HackAtom Cosmos NFT
+            </div>
+            </p>
+
+            <div>
+                        <p>
+                        <input type="checkbox" id="validdl" name="validdl" value="validdl">
+                        <label for="validdl"> Valid Driver's License?</label><br>
+                        </p>
+
+                        <p>
+                        <input type="checkbox" id="validreg" name="validreg" value="validreg">
+                        <label for="vehicle2"> Valid Vehicle Registration?</label><br>
+                        </p>
+
+                        <p>
+                        <input type="checkbox" id="validins" name="validins" value="validins">
+                        <label for="validins"> Valid Vehicle Insurance?</label><br>
+                        </p>
+
+                        <p>
+                                    <label for="currentstatus">Vehicle Current Status</label><br>
+                                    <select name="status" id="currentstatus">
+                                            <option value="ok">Vehicle Operator OK</option>
+                                            <option value="stolen">Stolen</option>
+                                            <option value="amber">On Ambert Alert Watchlist</option>
+                                    </select>
+                        </p>
+
+                       
+            </div>
+
+            <p>Voluntary Consent</p><br>
+            <div>
+                        <p>
+                        <input type="checkbox" id="search" name="search" >
+                        <label for="search">Permission to Search Vehicle</label><br>
+                        </p>
+            </div>
+
+            <div>
+                    <button id="savenft">Save to NFT</button>
+                    <button id="home">Home</button>
+            </div>
+            
+        </div>
+        
+        <script src="cordova.js"></script>
+        <script src="js/data.js"></script>
+        <script src="js/enforcement.js"></script>
+    </body>
+</html>

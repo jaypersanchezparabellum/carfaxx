@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta charset="utf-8">
+        <!--meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+    <script src="./node_modules/qrcode/build/qrcode.min.js"></script>
+
+</head>
+  <body>
+
+        <div id="textdata">
+                <input type="text" id="vin" name="vin" placeholder="Enter VIN Number"><br>
+        </div>
+        <div>
+        <canvas id="canvas">
+                        <script>
+                                 
+                                //localStorage.setItem('vincode', "4Y1SL65848Z411439")
+                                /*QRCode.toCanvas(document.getElementById('canvas'), localStorage.getItem('vincode'), function (error) {
+                                    if (error) {
+                                        console.error(error)
+                                    }
+                                })*/
+                        </script>
+        </canvas><br>
+        </div>
+
+        <script>
+            document.getElementById('gohome').addEventListener("click", function() {
+                window.location.href = "index.html"
+            });
+             /*QRScanner.scan().subscribe(function(err, contents) {
+                    localStorage.setItem('vincode',contents)
+                })*/
+                //localStorage.setItem('vincode', "4Y1SL65848Z411439")
+                /*QRCode.toCanvas(document.getElementById('textdata'), localStorage.getItem('vincode'), function (error) {
+                    if (error) {
+                        console.error(error)
+                    }
+                })*/
+        </script>
+  </body>
+</html>
