@@ -57,9 +57,14 @@ var fsbo = [
         "epa":"pass",
         "title_type":"clean",
         "alert":"none",
-        "mro_history": [
-            ""
-        ],
         "financing":"none"
+    }
+]
+
+var mro = [
+    {
+        "report_date":"mm/dd/yyyy",
+        "mileage":11,
+        "comments":"Title issued or updated Registration issued or renewed Loan or lien reported Vehicle color noted as silver"
     }
 ]

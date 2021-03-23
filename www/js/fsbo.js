@@ -23,6 +23,18 @@ function setupDocument() {
             document.getElementById("lien").checked = true
         }
     }
+
+    //now search for MRO data
+    if( localStorage.getItem("mro") !== null ) {
+        document.getElementById("reportdate").disabled = true;
+        document.getElementById("mileage").disabled = true;
+        document.getElementById("comments").disabled = true;
+        var _data = localStorage.getItem("mro");
+        var parsedData = JSON.parse(_data);
+       document.getElementById('reportdate').value = parsedData.report_date;
+        document.getElementById('mileage').value = parsedData.mileage;
+        document.getElementById('comments').value = parsedData.comments;
+    }
 }
 
 function saveNFT() {

@@ -4,7 +4,24 @@ document.getElementById("scan").addEventListener("click",qrScan)
 document.getElementById("ins").addEventListener("click",insuranceFinanceData)
 document.getElementById("law").addEventListener("click", law_enforcement)
 document.getElementById("fsbo").addEventListener("click", fsbo)
-document.getElementById("scanData").addEventListener("click", scanData)
+document.getElementById("scan").addEventListener("click", scanData)
+
+
+function setupDocument() {
+  //by default create an MRO data record for testing purposes.
+  var cdt = new Date();
+  //alert( cdt )
+  var mro = 
+    {
+        "report_date": cdt,
+        "mileage": Math.random() * 100,
+        "comments":"Title issued or updated Registration issued or renewed Loan or lien reported Vehicle color noted as silver"
+    }
+  
+
+  //this will eventually be forwarded to an NFT
+  localStorage.setItem("mro", JSON.stringify(mro))
+}
 
 function scanData() {
   cordova.plugins.barcodeScanner.scan(function (result) {
@@ -63,7 +80,7 @@ function onDone(error, status) {
     }
 }
 
-QRScanner.scan(displayContents)
+//QRScanner.scan(displayContents)
 
 function qrScan() {
   //localStorage.setItem('vincode', document.getElementById("vin").value)
@@ -87,3 +104,4 @@ function onDeviceReady() {
     QRScanner.prepare(onDone); 
         
 }
+

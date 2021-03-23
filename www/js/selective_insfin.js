@@ -65,9 +65,11 @@ function goHome() {
     //save selected fields into localStorage
     let violation = document.getElementById("violation").checked;
     let history = document.getElementById("maintenancehistory").checked;
+    let mro = document.getElementById('mro').checked;
     var selected = { 
         "violation":violation, 
-        "history":history 
+        "history":history,
+        "mro" : mro
     }
     localStorage.setItem('selectedinsfin', JSON.stringify(selected))
 
