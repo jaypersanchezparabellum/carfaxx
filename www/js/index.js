@@ -24,9 +24,9 @@ function setupDocument() {
 }
 
 function scanData() {
-  cordova.plugins.barcodeScanner.scan(function (result) {
+  /*cordova.plugins.barcodeScanner.scan(function (result) {
     alert("Barcode/QR code data\n" + "Result: " + result.text + "\n" + "Format: " + result.format + "\n" + "Cancelled: " + result.cancelled)
-  })
+  })*/
 
 }
 
@@ -83,7 +83,7 @@ function onDone(error, status) {
 //QRScanner.scan(displayContents)
 
 function qrScan() {
-  //localStorage.setItem('vincode', document.getElementById("vin").value)
+  localStorage.setItem('vincode', document.getElementById("vin").value)
   window.location.href = "qrcodescreen.html"
 }
 

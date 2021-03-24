@@ -14,6 +14,7 @@
 
         <div id="textdata">
                 <input type="text" id="vin" name="vin" placeholder="Enter VIN Number"><br>
+                <button id="gohome">Go Home</button>
         </div>
         <div>
         <canvas id="canvas">
@@ -30,18 +31,23 @@
         </div>
 
         <script>
-            document.getElementById('gohome').addEventListener("click", function() {
-                window.location.href = "index.html"
-            });
-             /*QRScanner.scan().subscribe(function(err, contents) {
-                    localStorage.setItem('vincode',contents)
-                })*/
-                //localStorage.setItem('vincode', "4Y1SL65848Z411439")
-                /*QRCode.toCanvas(document.getElementById('textdata'), localStorage.getItem('vincode'), function (error) {
+             //localStorage.setItem('vincode', "4Y1SL65848Z411439")
+                QRCode.toCanvas(document.getElementById('canvas'), localStorage.getItem('vincode'), function (error) {
                     if (error) {
                         console.error(error)
                     }
+                })
+
+            document.getElementById('gohome').addEventListener("click", function() {
+                window.location.href = "index.html"
+            });
+
+            document.getElementById('vin').value = localStorage.getItem('vincode');
+            document.getElementById('vin').disabled = true;
+             /*QRScanner.scan().subscribe(function(err, contents) {
+                    localStorage.setItem('vincode',contents)
                 })*/
+               
         </script>
   </body>
 </html>
