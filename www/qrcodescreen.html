@@ -7,14 +7,17 @@
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="css/index.css">
-    <script src="./node_modules/qrcode/build/qrcode.min.js"></script>
+        <script src="./node_modules/qrcode/build/qrcode.min.js"></script>
+        
 
 </head>
   <body>
 
         <div id="textdata">
                 <input type="text" id="vin" name="vin" placeholder="Enter VIN Number"><br>
-                <button id="gohome">Go Home</button>
+                <button id="gohome">Go Home</button><br><br>
+                <textarea id="deviceinfo" name="deviceinfo" rows="10" cols="100"></textarea>
+                
         </div>
         <div>
         <canvas id="canvas">
@@ -28,6 +31,11 @@
                                 })*/
                         </script>
         </canvas><br>
+        <script>
+                    let dinfo = localStorage.getItem('deviceinfo') 
+                         var parsedData = JSON.parse(dinfo);
+                         document.getElementById("deviceinfo").value = `Cordova Version: ${parsedData.cordovaversion} ${String.fromCharCode(13, 10)} UUID: ${parsedData.uuid}`
+        </script>
         </div>
 
         <script>
@@ -47,7 +55,10 @@
              /*QRScanner.scan().subscribe(function(err, contents) {
                     localStorage.setItem('vincode',contents)
                 })*/
+
+                
                
         </script>
+        
   </body>
 </html>

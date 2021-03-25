@@ -21,6 +21,8 @@ function setupDocument() {
 
   //this will eventually be forwarded to an NFT
   localStorage.setItem("mro", JSON.stringify(mro))
+
+   
 }
 
 function scanData() {
@@ -102,6 +104,11 @@ function onDeviceReady() {
     document.getElementById('deviceready').classList.add('ready');
     //ask user permission for app to use camera for QR Code scanning
     QRScanner.prepare(onDone); 
-        
+    //alert(`${device.cordova} :: ${device.uuid}`);
+    var deviceinfo = {
+      "cordovaversion" : device.cordova,
+      "uuid" : device.uuid
+    }
+    localStorage.setItem('deviceinfo', JSON.stringify(deviceinfo) )
 }
 
