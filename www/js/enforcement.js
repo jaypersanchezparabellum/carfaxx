@@ -53,6 +53,26 @@ function saveNFT() {
         search = document.getElementById("search").checked;
     }
 
+    //setup for NFT - "validlicense:S|true,validregistration:S|true,epasmog:S|pass,vehiclefinancestatus:S|owned,vehicletitlestatus:S|clean"
+    let mutableTraits = `validlicense:S|${validdl},validregistration:S|${validreg},validins:S|${validins},status:S|${status}`
+    let immutableTraits = `"search:S|${search},style:S|Blue,type:S|asset"`
+    /**************************************************************************/
+    const NFTAssetPostData = {
+        "type": "/xprt/assets/define/request",
+        "value": {
+            "baseReq": {
+                "from": "cosmos14x0dhyrlfn2zxnh6dsk6wzfl4jzd6n8s3ml57f",
+                "chain_id": "test",
+                "memo": ""
+            },
+            "fromID": "test.5hQadaCB5nLp8gM3K5jeaHxlf7A=",
+            "mutableTraits": mutableTraits,
+            "immutableTraits": immutableTraits,
+            "mutableMetaTraits": "burn:H|,lock:H|,URI:S|",
+            "immutableMetaTraits": "classifier:S|lawenforcement,identifier:S|lawenforcement,description:S|law enforcement"
+        }
+    }
+    /************************************************************************/
 
     var law_enforcement = 
         {
@@ -65,12 +85,29 @@ function saveNFT() {
     
     localStorage.setItem("law_enforcement", JSON.stringify(law_enforcement))
 
-    
-    
-
-
+    //connect to assetMantle
+    createNFTAsset(NFTAssetPostData);
 }
 
 function goHome() {
     window.location.href = "index.html"
+}
+
+function createNFTAsset(_NFTAssetPostData) {
+    const URL = `http://143.110.183.203:1317/xprt/assets/define`
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', URL, true);
+
+    //set headers
+    xhr.setRequestHeader('Content-Type', 'application/json')
+    //xhr.setRequestHeader("Transfer-Encoding", "chunked")
+    
+    //set response time
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            console.log(xhr.response);
+        }
+    }
+    xhr.send(JSON.stringify(_NFTAssetPostData));
 }

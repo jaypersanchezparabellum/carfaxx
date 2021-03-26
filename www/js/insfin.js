@@ -3,6 +3,8 @@ document.getElementById("home").addEventListener("click", goHome)
 document.addEventListener('deviceready', onDeviceReady, false);
 document.addEventListener("DOMContentLoaded",setupDocument)
 
+
+
 function onDeviceReady() {
     //ask user permission for app to use camera for QR Code scanning
     QRScanner.prepare(startScan); 
@@ -137,6 +139,27 @@ function saveNFT() {
         getMRO();
     }
 
+    //setup for NFT - "validlicense:S|true,validregistration:S|true,epasmog:S|pass,vehiclefinancestatus:S|owned,vehicletitlestatus:S|clean"
+    let mutableTraits = `validlicense:S|${validdl},validregistration:S|${validreg},epasmog:S|${epa},vehiclefinancestatus:S|${fininfo},vehicletitlestatus:S|${title}`
+    let immutableTraits = `trafficviolation:S|${violation},maintenancehistory:S|${history},mro:S|true,style:S|Blue,type:S|asset`
+    /**************************************************************************/
+    const NFTAssetPostData = {
+        "type": "/xprt/assets/define/request",
+        "value": {
+            "baseReq": {
+                "from": "cosmos14x0dhyrlfn2zxnh6dsk6wzfl4jzd6n8s3ml57f",
+                "chain_id": "test",
+                "memo": ""
+            },
+            "fromID": "test.5hQadaCB5nLp8gM3K5jeaHxlf7A=",
+            "mutableTraits": mutableTraits,
+            "immutableTraits": immutableTraits,
+            "mutableMetaTraits": "burn:H|,lock:H|,URI:S|",
+            "immutableMetaTraits": "classifier:S|insurance,identifier:S|insurance,description:S|insurance finance"
+        }
+    }
+    /************************************************************************/
+
     var mro = 
         {
             "report_date":"mm/dd/yyyy",
@@ -165,6 +188,9 @@ function saveNFT() {
     }
     //this will eventually be forwarded to an NFT
     localStorage.setItem("insurance_finance", JSON.stringify(insurance_finance))
+
+    //connect to assetMantle
+    createNFTAsset(NFTAssetPostData);
 }
 
 function getMRO() {
@@ -176,3 +202,24 @@ function getMRO() {
 function goHome() {
     window.location.href = "index.html"
 }
+
+
+function createNFTAsset(_NFTAssetPostData) {
+    const URL = `http://143.110.183.203:1317/xprt/assets/define`
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', URL, true);
+
+    //set headers
+    xhr.setRequestHeader('Content-Type', 'application/json')
+    //xhr.setRequestHeader("Transfer-Encoding", "chunked")
+    
+    //set response time
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            console.log(xhr.response);
+        }
+    }
+    xhr.send(JSON.stringify(_NFTAssetPostData));
+}
+
